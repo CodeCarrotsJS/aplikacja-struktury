@@ -1,6 +1,5 @@
 communication.register('Michał');
 communication.addMessageListener(function (kto, co) {
-  console.log(kto, co);
   if (co.element) {
     var element = document.createElement(co.element),
       nazwa;
@@ -17,4 +16,13 @@ communication.addMessageListener(function (kto, co) {
     });
     document.body.appendChild(element);
   }
+});
+communication.sendTo('Michał', {
+  'element': 'div',
+  'css': {
+    'width': '100px',
+    'height': '100px',
+    'background': 'red'
+  },
+  'innerText': 'kopytko'
 });
