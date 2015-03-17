@@ -8,10 +8,10 @@
             socket.on('ggc-error', function (error) {
                 console.error('Błąd!', error);
             });
-            socket.on('message', function (from, what) {
+            socket.on('message', function (message) {
                var i;
                for (i = 0; i < messageListeners.length; i++) {
-                   messageListeners[i](from, what);
+                   messageListeners[i](message.from, message.what);
                }
             });
         };
